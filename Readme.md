@@ -1,388 +1,390 @@
-# Dokumentasi Lengkap Proyek E-Learning System
+# E-Learning System - Complete Project Documentation
 
 > 🌐 **Live Website**: [https://learningsystem.neuraworks.id](https://learningsystem.neuraworks.id)
 > 
-> 📧 **Kontak**: Jika Anda tertarik dengan proyek ini atau memiliki pertanyaan, silakan hubungi saya melalui email: [athaillah@neuraworks.id](mailto:athaillah@neuraworks.id)
+> 📧 **Contact**: If you are interested in this project or have any questions, please contact me via email: [athaillah@neuraworks.id](mailto:athaillah@neuraworks.id)
 
-## 📋 Daftar Isi
+## 📋 Table of Contents
 
-1. [Overview Proyek](#overview-proyek)
-2. [Teknologi yang Digunakan](#teknologi-yang-digunakan)
-3. [Struktur Proyek](#struktur-proyek)
-4. [Halaman Siswa (Student Pages)](#halaman-siswa-student-pages)
-5. [Halaman Instruktur (Instructor Pages)](#halaman-instruktur-instructor-pages)
-6. [Halaman Admin (Admin Pages)](#halaman-admin-admin-pages)
-7. [Sistem Autentikasi](#sistem-autentikasi)
-8. [Learning Path System](#learning-path-system)
-9. [Deployment](#deployment)
-10. [Pengembangan](#pengembangan)
-
----
-
-## Overview Proyek
-
-**E-Learning System** adalah platform pembelajaran online yang dirancang khusus untuk sistem pembelajaran terintegrasi di lingkungan manufaktur. Sistem ini mendukung berbagai peran pengguna dengan fitur-fitur khusus untuk masing-masing peran.
-
-🌐 **Akses aplikasi**: [https://learningsystem.neuraworks.id](https://learningsystem.neuraworks.id)
-
-### Fitur Utama
-
-- ✅ Sistem pembelajaran berbasis kursus
-- ✅ Learning Path terstruktur berdasarkan cluster dan job level
-- ✅ Manajemen tugas dan penilaian
-- ✅ Forum diskusi
-- ✅ Perpustakaan SOP (Standard Operating Procedure)
-- ✅ Jadwal pelatihan
-- ✅ Analytics dan pelaporan
-- ✅ Sistem sertifikasi bertingkat
-- ✅ Audit trail untuk tracking aktivitas
-
-### Target Pengguna
-
-1. **Siswa (Student)** - Karyawan yang mengikuti pelatihan
-2. **Instruktur (Instructor)** - Pengajar yang mengelola kursus
-3. **Admin** - Administrator sistem
-4. **Manager** - Manajer yang memantau tim
-5. **HRD** - Divisi HR yang mengelola pelatihan
-6. **Supervisor** - Supervisor yang memantau tim
+1. [Project Overview](#project-overview)
+2. [Project Structure](#project-structure)
+3. [Student Pages](#student-pages)
+4. [Instructor Pages](#instructor-pages)
+5. [Admin Pages](#admin-pages)
+6. [Authentication System](#authentication-system)
+7. [Learning Path System](#learning-path-system)
+8. [Deployment](#deployment)
+9. [Development](#development)
+10. [Important Notes](#important-notes)
+11. [Support & Maintenance](#support--maintenance)
+12. [Contact & Additional Documentation](#contact--additional-documentation)
 
 ---
 
-## Struktur Proyek
+## Project Overview
 
-Proyek menggunakan struktur standar React dengan komponen terorganisir berdasarkan role (admin, instructor, student), layout, dan shared components. Konfigurasi deployment menggunakan Docker dan Caddy untuk reverse proxy.
+**E-Learning System** is an online learning platform specifically designed for integrated learning systems in manufacturing environments. The system supports various user roles with specific features for each role.
+
+🌐 **Access the application**: [https://learningsystem.neuraworks.id](https://learningsystem.neuraworks.id)
+
+### Key Features
+
+- ✅ Course-based learning system
+- ✅ Structured Learning Path based on cluster and job level
+- ✅ Assignment and grading management
+- ✅ Discussion forum
+- ✅ SOP (Standard Operating Procedure) library
+- ✅ Training schedule
+- ✅ Analytics and reporting
+- ✅ Multi-level certification system
+- ✅ Audit trail for activity tracking
+
+### Target Users
+
+1. **Student** - Employees participating in training
+2. **Instructor** - Teachers managing courses
+3. **Admin** - System administrator
+4. **Manager** - Managers monitoring teams
+5. **HRD** - HR division managing training
+6. **Supervisor** - Supervisors monitoring teams
 
 ---
 
-## Halaman Siswa (Student Pages)
+## Project Structure
 
-### 1. Dashboard Siswa (`/dashboard`)
+The project uses a standard React structure with components organized by role (admin, instructor, student), layout, and shared components. Deployment configuration uses Docker and Caddy for reverse proxy.
 
-**Fitur:**
-- **Welcome Section** dengan informasi user:
+---
+
+## Student Pages
+
+### 1. Student Dashboard (`/dashboard`)
+
+**Features:**
+- **Welcome Section** with user information:
   - Cluster (Operator, Leader, Supervisor, Manager, Expatriate)
   - Job Level (Basic, Intermediate, Advanced)
-  - Level Sertifikasi (1-5)
-  - Progress Learning Path keseluruhan
+  - Certification Level (1-5)
+  - Overall Learning Path progress
 
 - **Quick Stats Cards:**
-  - Pelatihan Aktif
-  - Jam Pelatihan
-  - Level Sertifikasi
-  - Rata-rata Nilai
+  - Active Training
+  - Training Hours
+  - Certification Level
+  - Average Score
 
 - **My Learning Path Section:**
-  - Menampilkan Learning Path yang di-assign
-  - Progress keseluruhan
+  - Displays assigned Learning Path
+  - Overall progress
   - Progress per track (Technical, Culture, Productivity)
-  - Status completion per track
+  - Completion status per track
 
 - **My Courses Table:**
-  - Daftar kursus yang di-enroll
-  - Progress per kursus
-  - Status (Belum Dimulai, Berlangsung, Selesai)
-  - Aksi untuk melanjutkan/mulai kursus
+  - List of enrolled courses
+  - Progress per course
+  - Status (Not Started, In Progress, Completed)
+  - Action to continue/start course
 
 - **Recent Activity:**
-  - Notifikasi terbaru
-  - Aktivitas pembelajaran
+  - Latest notifications
+  - Learning activities
 
 - **Quick Actions:**
-  - Lihat Jadwal
-  - Forum Diskusi
-  - Sertifikat Saya
+  - View Schedule
+  - Discussion Forum
+  - My Certificates
 
-### 2. Daftar Kursus (`/courses`)
+### 2. Course List (`/courses`)
 
-**Fitur:**
-- Grid/list view kursus
-- Filter berdasarkan kategori
-- Search kursus
-- Informasi kursus:
+**Features:**
+- Grid/list view of courses
+- Filter by category
+- Search courses
+- Course information:
   - Thumbnail
-  - Judul dan deskripsi
-  - Instruktur
+  - Title and description
+  - Instructor
   - Rating
-  - Jumlah siswa enrolled
-  - Durasi
-- Enroll ke kursus
+  - Number of enrolled students
+  - Duration
+- Enroll in courses
 
-### 3. Detail Kursus (`/courses/:courseId`)
+### 3. Course Detail (`/courses/:courseId`)
 
-**Fitur:**
-- Informasi lengkap kursus
-- Daftar modul dan lesson
+**Features:**
+- Complete course information
+- List of modules and lessons
 - Progress tracking per lesson
-- Video player untuk video lessons
-- Document viewer untuk document lessons
+- Video player for video lessons
+- Document viewer for document lessons
 - Quiz interface
 - Assignment submission
-- Navigasi antar lesson
+- Navigation between lessons
 
-### 4. Tugas (`/assignments`)
+### 4. Assignments (`/assignments`)
 
-**Fitur:**
-- Daftar semua tugas
-- Filter berdasarkan:
-  - Status (Belum dikerjakan, Sedang dikerjakan, Selesai, Terlambat)
-  - Kursus
+**Features:**
+- List of all assignments
+- Filter by:
+  - Status (Not Started, In Progress, Completed, Late)
+  - Course
   - Deadline
-- Informasi tugas:
-  - Judul dan deskripsi
-  - Kursus terkait
+- Assignment information:
+  - Title and description
+  - Related course
   - Deadline
-  - Status submission
-  - Score (jika sudah dinilai)
-- Submit tugas dengan attachment
-- View feedback dari instruktur
+  - Submission status
+  - Score (if graded)
+- Submit assignment with attachment
+- View feedback from instructor
 
-### 5. Nilai (`/grades`)
+### 5. Grades (`/grades`)
 
-**Fitur:**
-- Daftar nilai dari semua kursus
-- Breakdown nilai per:
+**Features:**
+- List of grades from all courses
+- Grade breakdown by:
   - Assignment
   - Quiz
   - Final exam
-- Grafik progress nilai
-- Rata-rata nilai keseluruhan
-- Sertifikat yang sudah diperoleh
-- Download sertifikat
+- Grade progress chart
+- Overall average grade
+- Obtained certificates
+- Download certificates
 
-### 6. Jadwal (`/schedule`)
+### 6. Schedule (`/schedule`)
 
-**Fitur:**
-- Kalender view jadwal pelatihan
-- List view jadwal
-- Filter berdasarkan:
-  - Tanggal
-  - Tipe pelatihan (Classroom, OJT, Practical)
+**Features:**
+- Calendar view of training schedule
+- List view of schedule
+- Filter by:
+  - Date
+  - Training type (Classroom, OJT, Practical)
   - Status (Scheduled, Ongoing, Completed)
-- Detail jadwal:
-  - Waktu dan lokasi
-  - Instruktur
-  - Materi pelatihan
-  - Daftar peserta
-- Enroll ke pelatihan
-- Absensi
+- Schedule details:
+  - Time and location
+  - Instructor
+  - Training materials
+  - Participant list
+- Enroll in training
+- Attendance
 
-### 7. Forum Diskusi (`/forum`)
+### 7. Discussion Forum (`/forum`)
 
-**Fitur:**
-- Daftar thread diskusi per kursus
-- Buat thread baru
-- Reply ke thread
-- Search dan filter thread
-- Like/upvote post
-- Notifikasi reply
+**Features:**
+- List of discussion threads per course
+- Create new thread
+- Reply to thread
+- Search and filter threads
+- Like/upvote posts
+- Reply notifications
 - Mark as read/unread
 
-### 8. Perpustakaan SOP (`/sop-library`)
+### 8. SOP Library (`/sop-library`)
 
-**Fitur:**
-- Daftar SOP documents
-- Filter berdasarkan:
-  - Kategori (Production, Quality, Safety, Maintenance, Warehouse, HR)
+**Features:**
+- List of SOP documents
+- Filter by:
+  - Category (Production, Quality, Safety, Maintenance, Warehouse, HR)
   - Department
   - Tags
 - Search SOP
 - Preview SOP
 - Download SOP
-- Rating dan review SOP
-- Versi SOP
-- History download
+- Rate and review SOP
+- SOP version
+- Download history
 
-### 9. Profil (`/profile`)
+### 9. Profile (`/profile`)
 
-**Fitur:**
-- Informasi profil:
-  - Nama, email, student ID
+**Features:**
+- Profile information:
+  - Name, email, student ID
   - Department
-  - Cluster dan Job Level
-  - Level Sertifikasi
+  - Cluster and Job Level
+  - Certification Level
   - Avatar
-- Edit profil
-- Ubah password
+- Edit profile
+- Change password
 - Progress summary
 - Achievement badges
 - Learning history
 
 ### 10. Learning Path Viewer (`/learning-path/:pathId`)
 
-**Fitur:**
-- Visualisasi Learning Path
-- Tracks dalam Learning Path:
+**Features:**
+- Learning Path visualization
+- Tracks in Learning Path:
   - Technical Track
   - Culture Track
   - Productivity Track
 - Progress per track
-- Daftar kursus per track
+- List of courses per track
 - Prerequisites
 - Estimated duration
-- Navigasi ke kursus
+- Navigate to courses
 
 ---
 
-## Halaman Instruktur (Instructor Pages)
+## Instructor Pages
 
-### 1. Dashboard Instruktur (`/dashboard`)
+### 1. Instructor Dashboard (`/dashboard`)
 
-**Fitur:**
-- **Welcome Section** dengan quick action "Buat Kursus Baru"
+**Features:**
+- **Welcome Section** with quick action "Create New Course"
 
 - **Quick Stats:**
-  - Total Kursus
-  - Total Siswa
-  - Rata-rata Rating
-  - Diskusi Aktif
+  - Total Courses
+  - Total Students
+  - Average Rating
+  - Active Discussions
 
-- **Readiness Index Tenaga Kerja:**
-  - Indeks kesiapan tenaga kerja berdasarkan progress
-  - Progress bar dengan status (Siap, Cukup Siap, Perlu Perhatian)
-  - Breakdown per cluster (Operator, Leader, Supervisor, Manager, Expatriate)
+- **Workforce Readiness Index:**
+  - Workforce readiness index based on progress
+  - Progress bar with status (Ready, Fairly Ready, Needs Attention)
+  - Breakdown by cluster (Operator, Leader, Supervisor, Manager, Expatriate)
 
-- **Kompetensi yang Perlu Diperbaiki:**
-  - Daftar kompetensi dengan progress rendah
-  - Status (Kritis, Perhatian)
-  - Jumlah siswa terpengaruh
-  - Progress rata-rata
+- **Competencies Needing Improvement:**
+  - List of competencies with low progress
+  - Status (Critical, Attention)
+  - Number of affected students
+  - Average progress
 
-- **Statistik Lulus/Gagal:**
-  - Overall statistics (Lulus, Sedang Belajar, Gagal)
-  - Breakdown per cluster
-  - Persentase per kategori
+- **Pass/Fail Statistics:**
+  - Overall statistics (Passed, In Progress, Failed)
+  - Breakdown by cluster
+  - Percentage per category
 
 - **Quick Actions:**
-  - Buat Kursus Baru
-  - Lihat Analitik Lengkap
-  - Kelola Siswa
+  - Create New Course
+  - View Complete Analytics
+  - Manage Students
 
 - **Summary Stats:**
-  - Total Kursus
-  - Total Siswa
+  - Total Courses
+  - Total Students
   - Readiness Index
-  - Tingkat Kelulusan
+  - Pass Rate
 
-### 2. Manajemen Kursus (`/courses`)
+### 2. Course Management (`/courses`)
 
-**Fitur:**
-- Daftar semua kursus yang dibuat instruktur
-- Buat kursus baru
-- Edit kursus
-- Hapus kursus
-- Duplicate kursus
-- Status kursus (Draft, Active, Archived)
-- Statistik per kursus:
-  - Jumlah siswa enrolled
-  - Rata-rata progress
+**Features:**
+- List of all courses created by instructor
+- Create new course
+- Edit course
+- Delete course
+- Duplicate course
+- Course status (Draft, Active, Archived)
+- Statistics per course:
+  - Number of enrolled students
+  - Average progress
   - Completion rate
   - Rating
 
-### 3. Detail Kursus Instruktur (`/instructor/courses/:courseId`)
+### 3. Instructor Course Detail (`/instructor/courses/:courseId`)
 
-**Fitur:**
-- Overview kursus
-- Manajemen modul dan lesson:
-  - Tambah/edit/hapus modul
-  - Tambah/edit/hapus lesson
+**Features:**
+- Course overview
+- Module and lesson management:
+  - Add/edit/delete module
+  - Add/edit/delete lesson
   - Upload video/document
-  - Set durasi
-  - Reorder modul/lesson
-- Manajemen konten:
+  - Set duration
+  - Reorder modules/lessons
+- Content management:
   - Video lessons
   - Document lessons
   - Quiz
   - Assignment
-- Statistik siswa:
-  - Progress per siswa
+- Student statistics:
+  - Progress per student
   - Completion rate
   - Average score
-- Settings kursus:
+- Course settings:
   - Visibility
   - Enrollment settings
   - Prerequisites
 
-### 4. Manajemen Tugas (`/assignments`)
+### 4. Assignment Management (`/assignments`)
 
-**Fitur:**
-- Daftar semua tugas dari semua kursus
-- Buat tugas baru
-- Edit tugas
-- Hapus tugas
-- Filter berdasarkan kursus
+**Features:**
+- List of all assignments from all courses
+- Create new assignment
+- Edit assignment
+- Delete assignment
+- Filter by course
 - View submissions
 - Grade assignments
-- Berikan feedback
+- Provide feedback
 - Export grades
 
-### 5. Detail Tugas (`/assignments/:assignmentId`)
+### 5. Assignment Detail (`/assignments/:assignmentId`)
 
-**Fitur:**
-- Informasi tugas
-- Daftar submissions:
-  - Nama siswa
-  - Waktu submit
+**Features:**
+- Assignment information
+- List of submissions:
+  - Student name
+  - Submission time
   - Status (Submitted, Graded, Late)
   - Score
 - Grade submission:
   - Input score
-  - Berikan feedback
+  - Provide feedback
   - Download attachment
 - Statistics:
   - Submission rate
   - Average score
   - Distribution
 
-### 6. Manajemen Siswa (`/students`)
+### 6. Student Management (`/students`)
 
-**Fitur:**
-- Daftar semua siswa
-- Filter berdasarkan:
+**Features:**
+- List of all students
+- Filter by:
   - Cluster
   - Job Level
   - Department
-  - Kursus
-- View detail siswa:
-  - Profil
-  - Progress per kursus
+  - Course
+- View student details:
+  - Profile
+  - Progress per course
   - Assignment submissions
   - Grades
-- Export data siswa
+- Export student data
 
-### 7. Jadwal Training (`/training-schedule`)
+### 7. Training Schedule (`/training-schedule`)
 
-**Fitur:**
-- Kalender view jadwal
-- Buat jadwal baru:
-  - Pilih kursus
-  - Set tanggal dan waktu
-  - Set lokasi
-  - Set tipe (Classroom, OJT, Practical)
+**Features:**
+- Calendar view of schedule
+- Create new schedule:
+  - Select course
+  - Set date and time
+  - Set location
+  - Set type (Classroom, OJT, Practical)
   - Set max participants
   - Upload materials
-- Edit/hapus jadwal
+- Edit/delete schedule
 - View enrolled students
 - Take attendance
 - Update status (Scheduled, Ongoing, Completed, Cancelled)
-- Export jadwal
+- Export schedule
 
-### 8. Analitik (`/analytics`)
+### 8. Analytics (`/analytics`)
 
-**Fitur:**
+**Features:**
 - **Overview Analytics:**
-  - Total siswa
+  - Total students
   - Completion rate
   - Average score
   - Engagement metrics
 
 - **Course Analytics:**
-  - Progress per kursus
+  - Progress per course
   - Student engagement
   - Drop-off points
   - Time spent
 
 - **Student Analytics:**
-  - Progress per siswa
+  - Progress per student
   - Performance distribution
   - At-risk students
   - Top performers
@@ -403,13 +405,13 @@ Proyek menggunakan struktur standar React dengan komponen terorganisir berdasark
   - Excel exports
   - Custom date ranges
 
-### 9. Manajemen Forum (`/forum`)
+### 9. Forum Management (`/forum`)
 
-**Fitur:**
-- Daftar semua thread dari semua kursus
-- Filter berdasarkan kursus
+**Features:**
+- List of all threads from all courses
+- Filter by course
 - View thread details
-- Reply ke thread
+- Reply to thread
 - Pin/unpin thread
 - Lock/unlock thread
 - Delete thread/reply
@@ -418,13 +420,13 @@ Proyek menggunakan struktur standar React dengan komponen terorganisir berdasark
   - Most active threads
   - Engagement metrics
 
-### 10. Manajemen SOP (`/sop-library`)
+### 10. SOP Management (`/sop-library`)
 
-**Fitur:**
-- Daftar semua SOP
-- Buat SOP baru:
+**Features:**
+- List of all SOPs
+- Create new SOP:
   - Upload document
-  - Set kategori
+  - Set category
   - Set department
   - Add tags
   - Set version
@@ -436,47 +438,47 @@ Proyek menggunakan struktur standar React dengan komponen terorganisir berdasark
 
 ### 11. Learning Paths (`/learning-paths`)
 
-**Fitur:**
-- Daftar Learning Paths
-- Buat Learning Path baru
+**Features:**
+- List of Learning Paths
+- Create new Learning Path
 - Edit Learning Path
-- Assign courses ke tracks
+- Assign courses to tracks
 - Set prerequisites
-- Assign ke siswa berdasarkan cluster/job level
+- Assign to students based on cluster/job level
 
 ---
 
-## Halaman Admin (Admin Pages)
+## Admin Pages
 
-### 1. Dashboard Admin (`/dashboard`)
+### 1. Admin Dashboard (`/dashboard`)
 
-**Fitur:**
-- **Welcome Section** dengan quick action "Tambah Pengguna"
+**Features:**
+- **Welcome Section** with quick action "Add User"
 
 - **Main Stats:**
-  - Total Siswa (dengan growth percentage)
-  - Total Instruktur (dengan growth)
-  - Total Kursus (dengan active courses)
-  - Revenue Bulan Ini (dengan growth)
+  - Total Students (with growth percentage)
+  - Total Instructors (with growth)
+  - Total Courses (with active courses)
+  - Monthly Revenue (with growth)
 
-- **Status Sistem:**
+- **System Status:**
   - Server Uptime
   - Active Users
   - Storage Used
   - Bandwidth
   - Status indicators (good/warning/error)
 
-- **Overview Kursus:**
-  - Daftar semua kursus
-  - Jumlah siswa per kursus
-  - Rating per kursus
+- **Course Overview:**
+  - List of all courses
+  - Number of students per course
+  - Rating per course
 
-- **Aktivitas Terbaru:**
-  - Log aktivitas sistem
+- **Recent Activities:**
+  - System activity logs
   - User actions
   - System events
 
-- **Peringatan:**
+- **Alerts:**
   - Storage warnings
   - System alerts
   - Backup status
@@ -486,118 +488,118 @@ Proyek menggunakan struktur standar React dengan komponen terorganisir berdasark
   - Generate Report
   - System Maintenance
 
-### 2. Manajemen Pengguna (`/users`)
+### 2. User Management (`/users`)
 
-**Fitur:**
-- Daftar semua pengguna (Siswa, Instruktur, Admin)
-- Filter berdasarkan:
+**Features:**
+- List of all users (Students, Instructors, Admin)
+- Filter by:
   - Role
   - Position
   - Department
   - Cluster
   - Status
-- Tambah pengguna baru:
-  - Input data lengkap
-  - Set role dan position
-  - Set cluster dan job level
+- Add new user:
+  - Input complete data
+  - Set role and position
+  - Set cluster and job level
   - Assign learning path
-- Edit pengguna:
-  - Update profil
+- Edit user:
+  - Update profile
   - Change role
   - Update cluster/job level
   - Reassign learning path
-- Hapus pengguna
+- Delete user
 - Bulk actions:
   - Bulk assign learning path
   - Bulk update cluster
   - Export users
 - View user details:
-  - Profil lengkap
+  - Complete profile
   - Activity log
   - Progress summary
 
-### 3. Manajemen Learning Paths (`/learning-paths`)
+### 3. Learning Path Management (`/learning-paths`)
 
-**Fitur:**
-- Daftar semua Learning Paths
-- Buat Learning Path baru:
-  - Nama dan deskripsi
+**Features:**
+- List of all Learning Paths
+- Create new Learning Path:
+  - Name and description
   - Target cluster
   - Target job level
   - Tracks (Technical, Culture, Productivity)
-  - Assign courses ke tracks
+  - Assign courses to tracks
   - Set prerequisites
   - Estimated duration
 - Edit Learning Path
-- Hapus Learning Path
+- Delete Learning Path
 - Duplicate Learning Path
-- Assign Learning Path ke siswa:
+- Assign Learning Path to students:
   - Manual assign
-  - Auto assign berdasarkan cluster/job level
+  - Auto assign based on cluster/job level
   - Bulk assign
 - View statistics:
-  - Jumlah siswa per Learning Path
+  - Number of students per Learning Path
   - Average progress
   - Completion rate
 
-### 4. Manajemen Instruktur (`/instructors`)
+### 4. Instructor Management (`/instructors`)
 
-**Fitur:**
-- Daftar semua instruktur
-- Tambah instruktur baru
-- Edit instruktur
-- Hapus instruktur
-- Assign kursus ke instruktur
-- View instruktur details:
-  - Profil
-  - Kursus yang diajar
+**Features:**
+- List of all instructors
+- Add new instructor
+- Edit instructor
+- Delete instructor
+- Assign courses to instructor
+- View instructor details:
+  - Profile
+  - Taught courses
   - Rating
-  - Total siswa
+  - Total students
   - Performance metrics
 
-### 5. Manajemen Siswa (`/students`)
+### 5. Student Management (`/students`)
 
-**Fitur:**
-- Daftar semua siswa
-- Filter dan search advanced
-- Tambah siswa baru
-- Edit siswa
-- Hapus siswa
+**Features:**
+- List of all students
+- Advanced filter and search
+- Add new student
+- Edit student
+- Delete student
 - Bulk operations:
   - Bulk assign learning path
   - Bulk update cluster
   - Bulk export
-- View detail siswa:
-  - Profil lengkap
+- View student details:
+  - Complete profile
   - Learning path
-  - Progress semua kursus
+  - Progress of all courses
   - Certification level
   - Activity history
 - Assign learning path
 - Update certification level
 
-### 6. Manajemen Kursus (`/courses` - Admin view)
+### 6. Course Management (`/courses` - Admin view)
 
-**Fitur:**
-- Daftar semua kursus dari semua instruktur
-- Filter berdasarkan:
-  - Instruktur
+**Features:**
+- List of all courses from all instructors
+- Filter by:
+  - Instructor
   - Status
-  - Kategori
+  - Category
 - View course details
-- Approve/reject kursus
-- Archive kursus
-- Delete kursus
-- Statistics per kursus
+- Approve/reject course
+- Archive course
+- Delete course
+- Statistics per course
 - Export course data
 
-### 7. Manajemen Tugas & Quiz (`/assignments` - Admin view)
+### 7. Assignment & Quiz Management (`/assignments` - Admin view)
 
-**Fitur:**
-- Daftar semua tugas dan quiz
-- Filter berdasarkan:
-  - Kursus
-  - Instruktur
+**Features:**
+- List of all assignments and quizzes
+- Filter by:
+  - Course
+  - Instructor
   - Type (Assignment/Quiz)
 - View details
 - Statistics:
@@ -606,9 +608,9 @@ Proyek menggunakan struktur standar React dengan komponen terorganisir berdasark
   - Distribution
 - Export data
 
-### 8. Analitik Admin (`/analytics`)
+### 8. Admin Analytics (`/analytics`)
 
-**Fitur:**
+**Features:**
 - **System-wide Analytics:**
   - Total users
   - Active users
@@ -646,25 +648,25 @@ Proyek menggunakan struktur standar React dengan komponen terorganisir berdasark
 
 ### 9. Audit Trail (`/audit-trail`)
 
-**Fitur:**
-- Log semua aktivitas sistem
-- Filter berdasarkan:
+**Features:**
+- Log all system activities
+- Filter by:
   - User
   - Action type
   - Date range
   - Module/feature
-- View detail log:
-  - User yang melakukan action
-  - Waktu
+- View log details:
+  - User who performed action
+  - Time
   - Action details
   - Before/after values
 - Search logs
 - Export audit logs
 - Retention settings
 
-### 10. Pengaturan Sistem (`/settings`)
+### 10. System Settings (`/settings`)
 
-**Fitur:**
+**Features:**
 - **General Settings:**
   - Site name
   - Logo
@@ -705,43 +707,43 @@ Proyek menggunakan struktur standar React dengan komponen terorganisir berdasark
 
 ---
 
-## Sistem Autentikasi
+## Authentication System
 
-Sistem autentikasi mendukung login dan register dengan role-based access control. Terdapat 3 role utama: **student** (siswa/karyawan), **instructor** (instruktur), dan **admin** (administrator). Selain itu, terdapat position/jabatan seperti manager, hrd, dan supervisor. Setiap user memiliki atribut seperti cluster, job level, certification level, dan learning path yang di-assign untuk personalisasi pembelajaran.
+The authentication system supports login and registration with role-based access control. There are 3 main roles: **student** (employee), **instructor** (teacher), and **admin** (administrator). Additionally, there are positions such as manager, HRD, and supervisor. Each user has attributes such as cluster, job level, certification level, and assigned learning path for personalized learning.
 
 ---
 
 ## Learning Path System
 
-### Konsep Learning Path
+### Learning Path Concept
 
-Learning Path adalah jalur pembelajaran terstruktur yang di-assign ke siswa berdasarkan:
+Learning Path is a structured learning pathway assigned to students based on:
 - **Cluster**: Operator, Leader, Supervisor, Manager, Expatriate
 - **Job Level**: Basic, Intermediate, Advanced
 
-### Struktur Learning Path
+### Learning Path Structure
 
-Setiap Learning Path terdiri dari:
-1. **Tracks** (Jalur):
-   - **Technical Track** - Kompetensi teknis
-   - **Culture Track** - Budaya perusahaan
-   - **Productivity Track** - Produktivitas
+Each Learning Path consists of:
+1. **Tracks**:
+   - **Technical Track** - Technical competencies
+   - **Culture Track** - Company culture
+   - **Productivity Track** - Productivity
 
-2. **Courses** - Kursus yang di-assign ke setiap track
+2. **Courses** - Courses assigned to each track
 
-3. **Prerequisites** - Learning Path yang harus diselesaikan terlebih dahulu
+3. **Prerequisites** - Learning Paths that must be completed first
 
 ### Auto-Assignment
 
-Sistem dapat auto-assign Learning Path berdasarkan:
-- Cluster user
-- Job level user
-- Department (opsional)
+The system can auto-assign Learning Paths based on:
+- User cluster
+- User job level
+- Department (optional)
 
 ### Progress Tracking
 
 - Progress per track
-- Progress keseluruhan Learning Path
+- Overall Learning Path progress
 - Completion status per course
 - Certification level update
 
@@ -749,29 +751,29 @@ Sistem dapat auto-assign Learning Path berdasarkan:
 
 ## Deployment
 
-Aplikasi di-deploy menggunakan Docker dan Caddy sebagai reverse proxy dengan SSL otomatis.
+The application is deployed using Docker and Caddy as a reverse proxy with automatic SSL.
 
 ---
 
-## Pengembangan
+## Development
 
-Proyek menggunakan React dengan TypeScript dan Tailwind CSS. Untuk setup development, install dependencies dan jalankan development server. Struktur proyek terorganisir berdasarkan komponen per role (admin, instructor, student) dan shared components.
+The project uses React with TypeScript and Tailwind CSS. For development setup, install dependencies and run the development server. The project structure is organized by components per role (admin, instructor, student) and shared components.
 
 ---
 
-## Catatan Penting
+## Important Notes
 
-Saat ini sistem menggunakan mock data untuk development. Untuk production, perlu integrasi dengan backend API, database, dan file storage. Sistem dirancang dengan mempertimbangkan aspek keamanan, performa, dan skalabilitas.
+The system currently uses mock data for development. For production, integration with backend API, database, and file storage is required. The system is designed considering security, performance, and scalability aspects.
 
 ---
 
 ## Support & Maintenance
 
-Sistem mendukung logging, backup reguler, dan update berkala untuk memastikan keamanan dan performa optimal.
+The system supports logging, regular backups, and periodic updates to ensure optimal security and performance.
 
 ---
 
-## Kontak & Dokumentasi Tambahan
+## Contact & Additional Documentation
 
 - **🌐 Live Website**: [https://learningsystem.neuraworks.id](https://learningsystem.neuraworks.id)
 - **📧 Email**: [athaillah@neuraworks.id](mailto:athaillah@neuraworks.id)
@@ -779,7 +781,7 @@ Sistem mendukung logging, backup reguler, dan update berkala untuk memastikan ke
 
 ---
 
-**Dokumentasi ini dibuat untuk memberikan overview lengkap tentang sistem E-Learning.**
+**This documentation was created to provide a complete overview of the E-Learning system.**
 
-**Jika Anda tertarik dengan proyek ini atau memiliki pertanyaan, silakan hubungi saya melalui email: [athaillah@neuraworks.id](mailto:athaillah@neuraworks.id)**
+**If you are interested in this project or have any questions, please contact me via email: [athaillah@neuraworks.id](mailto:athaillah@neuraworks.id)**
 
